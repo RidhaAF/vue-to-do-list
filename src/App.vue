@@ -23,7 +23,11 @@
                     value=""
                     id="flexCheckDefault"
                   />
-                  <label class="form-check-label item" for="flexCheckDefault">
+                  <label
+                    class="form-check-label item"
+                    v-bind:class="{ 'item-completed': task.status }"
+                    for="flexCheckDefault"
+                  >
                     {{ task.title }}
                   </label>
                 </div>
@@ -89,5 +93,9 @@ export default {
 
 .task .item {
   font-size: 20px;
+}
+
+.item-completed {
+  color: #1abc9c;
 }
 </style>
