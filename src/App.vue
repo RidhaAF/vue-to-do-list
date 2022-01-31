@@ -10,6 +10,17 @@
         <div class="col-lg-12">
           <div class="homework">
             <div class="row">
+              <div class="col-md-3">
+                <form @submit.prevent="submitForm" class="d-flex mb-3 gap-2">
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="title"
+                    placeholder="Add task"
+                  />
+                  <input type="submit" class="btn btn-success" value="Add" />
+                </form>
+              </div>
               <div
                 v-for="task in tasks"
                 v-bind:key="task.id"
@@ -68,6 +79,19 @@ export default {
     };
   },
   components: {},
+  methods: {
+    submitForm(event) {
+      let title = event.target.elements.title.value;
+
+      this.tasks.push({
+        id: this.tasks.length + 1,
+        title: title,
+        status: false,
+      });
+
+      event.target.elements.title.value = "";
+    },
+  },
 };
 </script>
 
