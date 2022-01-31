@@ -18,15 +18,13 @@
                 <div class="form-check">
                   <input
                     class="form-check-input"
-                    onclick=""
                     type="checkbox"
-                    value=""
-                    id="flexCheckDefault"
+                    :checked="task.status"
+                    @change="task.status = !task.status"
                   />
                   <label
                     class="form-check-label item"
-                    v-bind:class="{ 'item-completed': task.status }"
-                    for="flexCheckDefault"
+                    :class="{ itemCompleted: task.status }"
                   >
                     {{ task.title }}
                   </label>
@@ -95,7 +93,7 @@ export default {
   font-size: 20px;
 }
 
-.item-completed {
+.itemCompleted {
   color: #1abc9c;
 }
 </style>
