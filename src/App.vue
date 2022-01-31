@@ -2,15 +2,32 @@
   <div id="app">
     <div class="container">
       <div class="row header mb-5 p-3">
-        <div class="col-md-12">
-          <h2>What I do Today?</h2>
+        <div class="col-lg-12">
+          <h2 class="fw-bold">What I do Today?</h2>
         </div>
       </div>
       <div class="row content">
-        <div class="col-md-12">
+        <div class="col-lg-12">
           <div class="homework">
-            <div v-for="task in tasks" v-bind:key="task.id" class="task">
-              <p>{{ task.title }}</p>
+            <div class="row">
+              <div
+                v-for="task in tasks"
+                v-bind:key="task.id"
+                class="task mb-4 col-lg-12 text-start"
+              >
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    onclick=""
+                    type="checkbox"
+                    value=""
+                    id="flexCheckDefault"
+                  />
+                  <label class="form-check-label item" for="flexCheckDefault">
+                    {{ task.title }}
+                  </label>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -68,5 +85,9 @@ export default {
 
 .header h2 {
   margin: 0;
+}
+
+.task .item {
+  font-size: 20px;
 }
 </style>
